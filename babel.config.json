@@ -1,0 +1,15 @@
+{ 
+28   "presets": [ 
+29     [ 
+30       "@babel/preset-env", 
+31       { 
+32         "targets": { 
+33           "node": "current" 
+34         }, 
+35         "useBuiltIns": "usage", 
+36         "corejs": "3.6.5" 
+37       } 
+38     ] 
+39   ] 
+40 } 
+
