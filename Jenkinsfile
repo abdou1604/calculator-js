@@ -1,23 +1,26 @@
-pipeline {
-    // Agent -another remote machine
-    //Jenkins has master - node
 
+pipeline {
   agent any
 
- tools {
-    maven 'maven-3.8.4'
-    jdk 'JDK 17'
+  tools {nodejs "Node 17.4.0"}
 
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
     }
-  stages{
-    stage ('checkout'){
-        steps {
-            checkout scm
-       }
+
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
     }
-    stage('Build'){
-        steps {
-            sh 'mvn clean verify'
+
+
+    stage('Test') {
+      steps {
+        sh 'npm run test'
       }
     }
   }
